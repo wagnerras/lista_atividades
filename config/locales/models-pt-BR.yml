@@ -1,0 +1,23 @@
+'pt-BR':
+  activerecord:
+    models:
+      activity:
+        one: "Atividade"
+        other: "Atividades"
+      users:
+        one: "Usuario"
+        other: "Usuarios"
+    attributes:
+      activity:
+        id: "Id"
+        description: "Descrição"
+        done: "Feito"
+        created at: "Criado em"
+        updated at: "Atualizado em"
+        user: "Usuario"
+        user_id: "Id do Usuario"
+      users:
+        id: "Codigo"
+        email: "Email" 
+        created at: "Criado em"
+        updated at: "Atualizado em"

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teste</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag  'application'%>
+    <%= stylesheet_link_tag  'custom'%>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">   
+  </head>
+
+  <body>
+
+  <div class="container">
+
+   <%#= @usuario %>
+  <!--  NAVEGACAO --> 
+ <nav class="mb-5"> 
+    <ul class="nav justify-content-end">
+
+      <li>
+          <%= link_to '[HOME]', root_path, class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'Português', url_for(locale: 'pt-BR'), class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'English', url_for(locale: 'en'), class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"nav-link" %>
+      </li>  
+
+    </ul>
+  </nav>  
+   <!-- / NAVEGACAO -->  
+
+  <div class=row>
+
+    <div class=col-md-2>
+      <ul class="list-group">
+          
+          <% if not params[:pendent]%>
+
+          <%= link_to t('all'), activities_path, id:"link1", class:"list-group-item ativo" %>
+          <%= link_to t('pendent'), activities_path(pendent: 'yes'), id:"link2", class:"list-group-item" %>
+           
+          <%else%> 
+
+          <%= link_to t('all'), activities_path, id:"link1", class:"list-group-item" %>
+          <%= link_to t('pendent'), activities_path(pendent: 'yes'), id:"link2", class:"list-group-item ativo" %>
+
+          <%end%>
+      </ul>
+    </div>
+
+
+    <div class="col-md-10">
+     <div class="container ml-5 p-3" style="border: solid 2px #E0ECF8" >
+      <%= yield %>
+     </div> 
+    </div>
+
+  </div>
+
+
+  </div>  
+  
+  </body>
+
+  <%= javascript_include_tag 'application' %>
+
+  <script type="text/javascript">
+
+      $(document).ready(function () {
+      
+      window.setTimeout(function() {
+          $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+              $(this).remove(); 
+          });
+      }, 5000);
+      
+      });
+</script>
+
+</html>

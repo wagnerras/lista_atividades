@@ -1,0 +1,15 @@
+'pt-BR':
+  activities: "Atividades"
+  edit: "Editar"
+  destroy: "Destruir"
+  back: "Voltar"
+  all: "Todos"
+  pendent: "Pendentes"
+  tyes: "Sim"
+  tno: "Não"
+  new:
+    activity: "Nova atividade"
+  editing:
+    activity: "Editando Atividade"  
+
+  

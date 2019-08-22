@@ -1,0 +1,58 @@
+<!--<p id="notice"><%= notice %></p> -->
+
+<% if notice %>
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<% end %>
+
+   <h1><%= t('activities') %></h1>
+
+  <table class="table table-hover" >
+    <thead>
+      <tr>
+        <th><%= @activities.human_attribute_name(:description) %></th>
+        <th><%= @activities.human_attribute_name(:done) %></th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+      <% @activities.each do |activity| %>
+            <tr>
+              <td><%= activity.description %></td>
+              <td>
+                <% if activity.done != true %>
+                  <i class="fas fa-times-circle btn" style="color: red;" title=" <%= t('tno') %> "></i> 
+                <% else %> 
+                  <i class="fas fa-check btn" style="color: green;" title=" <%= t('tyes') %> "></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_activity_path(activity) do %>
+                  <i class="fas fa-edit btn-circle"></i> <%= t('edit') %>
+                <% end %>
+              </td>
+              <td>
+              <%= link_to activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="far fa-trash-alt btn-circle"></i> <%= t('destroy') %>
+              <% end %>
+              </td>
+            </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center" >
+    <%= paginate @activities %> 
+  </div>
+
+  <br>
+
+  <%= link_to t('new.activity'), new_activity_path, class:"btn btn-primary" %>

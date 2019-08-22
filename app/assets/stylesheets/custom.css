@@ -1,0 +1,15 @@
+.ativo {
+    background: #E0ECF8;
+}
+
+a:link 
+{ 
+    text-decoration:none; 
+} 
+
+body#bodydevice {
+   /* background-image: url('login.jpg'); */
+    /*background-image: url('login4.jpg');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

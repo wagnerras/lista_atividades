@@ -1,0 +1,15 @@
+en:
+  activities: "Activities"
+  destroy: "Delete"
+  edit: "Edit"
+  back: "Back"
+  all: "All"
+  pendent: "Pendent"
+  tyes: "Yes"
+  tno: "No"
+  new:
+    activity: "New activity"
+  editing:
+    activity: "Editing Activity"    
+
+  
